@@ -1,9 +1,15 @@
 package setup;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 public class TestSetup {
 
@@ -16,6 +22,21 @@ public class TestSetup {
 
     public WebDriver getDriver() {
         return driver.get();
+    }
+
+    // ✅ ADD THIS METHOD (THIS FIXES YOUR ERROR)
+    public String captureScreenshot(String testName) {
+        try {
+            File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+            String destPath = "screenshots/" + testName + ".png";
+            File dest = new File(destPath);
+            dest.getParentFile().mkdirs();
+            Files.copy(src.toPath(), dest.toPath());
+            return destPath;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @AfterMethod

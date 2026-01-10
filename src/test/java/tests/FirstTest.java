@@ -1,8 +1,10 @@
 package tests;
 
-import dataproviders.TitleDataProvider;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import dataproviders.TitleDataProvider;
 import setup.TestSetup;
 
 public class FirstTest extends TestSetup {
