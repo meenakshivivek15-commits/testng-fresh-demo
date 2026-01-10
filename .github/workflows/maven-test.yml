@@ -1,12 +1,10 @@
-name: Selenium TestNG CI
+name: Selenium TestNG CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
