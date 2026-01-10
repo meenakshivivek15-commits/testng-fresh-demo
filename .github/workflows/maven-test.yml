@@ -1,4 +1,4 @@
-name: Selenium TestNG CI/CD
+name: Selenium TestNG CI
 
 on:
   push:
