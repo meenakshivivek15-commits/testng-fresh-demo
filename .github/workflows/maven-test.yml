@@ -34,3 +34,13 @@ jobs:
           path: |
             target/surefire-reports
             test-output
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to QA (Simulation)
+        run: |
+          echo "Deploying to QA..."
+          echo "Deployment completed"
