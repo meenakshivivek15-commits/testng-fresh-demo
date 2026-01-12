@@ -1,0 +1,29 @@
+name: Selenium Smoke Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  run-smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Run TestNG Smoke Suite
+        run: mvn clean test -DsuiteXmlFile=suites/testng-smoke.xml
+
+      - name: Upload TestNG Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: testng-report
+          path: test-output/
