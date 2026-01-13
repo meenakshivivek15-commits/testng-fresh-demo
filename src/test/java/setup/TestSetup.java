@@ -33,7 +33,7 @@ public class TestSetup {
         driver.set(new ChromeDriver(options));
     }
 
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver.get();
     }
 
@@ -60,3 +60,4 @@ public class TestSetup {
         }
     }
 }
+
