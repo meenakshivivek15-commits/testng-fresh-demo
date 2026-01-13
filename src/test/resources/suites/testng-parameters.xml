@@ -1,0 +1,9 @@
+<suite name="Parameter Suite">
+    <test name="Parameter Test">
+
+        <classes>
+            <class name="basics.ParametersDemo"/>
+        </classes>
+
+    </test>
+</suite>
